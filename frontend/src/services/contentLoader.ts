@@ -1,8 +1,10 @@
 import { parseMarkdown, MarkdownData } from './markdownParser';
 
 const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || 'http://localhost:9000';
+console.log('API_BASE_URL:', API_BASE_URL);
 
 export async function loadScene(sceneId: string): Promise<MarkdownData> {
+  console.log(`Attempting to load scene with ID: '${sceneId}' (Type: ${typeof sceneId})`);
   try {
     const response = await fetch(`${API_BASE_URL}/api/scenes/${sceneId}`);
     if (!response.ok) {
